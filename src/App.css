@@ -1,0 +1,46 @@
+.poster{
+    max-width: 100px;
+}
+
+.movies-list{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.card{
+    display: flex;
+    flex-flow: column;
+    border: solid 1px grey;
+    max-width: 120px;
+    border-radius: 20px;
+    align-items: center;
+    margin: 10px;
+    cursor:pointer
+}
+
+.card:hover{
+    margin-top:-1px
+}
+
+.movies{
+    display: flex;
+    flex-flow: row;
+}
+
+.title{
+    font-size: 12px;
+}
+
+.filter{
+    display: flex;
+    flex-flow: row;
+    justify-items: center;
+    align-items: center;
+}
+
+.search{
+    padding: 10px;
+    margin: 10px;
+    border-radius: 15px;
+}
