@@ -3,6 +3,7 @@ import MovieCard from './MovieCard';
 import Filter from './Filter';
 import movies from "../data/movies";
 import AddMovie from "./AddMovie"
+import { Link } from "react-router-dom";
 
 function MovieList() {
     const [films,setFilms] = useState(movies)
@@ -11,10 +12,6 @@ function MovieList() {
     const [searchInput, setSearchInput] = useState('')
     const search = useRef('');
 
-    useEffect(() => {
-        setFilms(movies);
-        setFilteredFilms(films);
-    }, [])
     
     useEffect(() => {
         search.current = searchInput;
@@ -40,9 +37,11 @@ function MovieList() {
 
   return (
     <>
-
+    <div className='movies-list'>
+    <h1>MOVIES LIST</h1>
+    
     <AddMovie films={films} handlerAddFilm={handlerAddFilm} />
-
+    
     <Filter 
     filter={filter} 
     handlerFilterRating={handlerFilterRating}
@@ -53,18 +52,19 @@ function MovieList() {
     <div className='movies'>
     {filteredFilms.filter(m => m.rating >= filter).map((movie, key)=>{
     return (
-        
+        <Link to={`/film/${movie.id}`}>
         <MovieCard 
         key= {key} 
         title={movie.title} 
         rating={movie.rating} 
         poster={movie.poster} 
         />
+        </Link>
         )
     })
     }
 </div>
-    
+</div>
     </>
   )
 }

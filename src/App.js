@@ -2,15 +2,16 @@
 import './App.css';
 import './components/MovieList'
 import MovieList from "./components/MovieList";
-
+import { Routes, Route } from "react-router-dom"
+import Singlefilm from './components/Singlefilm';
 function App() {
   
   return (
     <>
-    <div className='movies-list'>
-    <h1>MOVIES LIST</h1>
-    <MovieList/>
-    </div>
+      <Routes>
+        <Route path="/" element={ <MovieList/> } />
+        <Route path="film/:id" element={ <Singlefilm/> } />
+      </Routes>
     </>
   )
 }
